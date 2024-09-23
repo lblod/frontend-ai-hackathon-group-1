@@ -2,7 +2,7 @@
   "name": "frontend-ai-hackathon-group-1",
   "version": "0.0.0",
   "private": true,
-  "description": "Small description for frontend-ai-hackathon-group-1 goes here",
+  "description": "The frontend of our AI hackaton app! With love, group 1",
   "repository": "",
   "license": "MIT",
   "author": "",
@@ -25,6 +25,7 @@
     "test:ember": "ember test"
   },
   "devDependencies": {
+    "@appuniversum/ember-appuniversum": "^3.6.0",
     "@babel/core": "^7.25.2",
     "@babel/eslint-parser": "^7.25.1",
     "@babel/plugin-proposal-decorators": "^7.24.7",
