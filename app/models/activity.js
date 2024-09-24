@@ -1,11 +1,11 @@
-import Model, { attr, belongsTo } from '@ember-data/model';
+import Model, { attr, hasMany } from '@ember-data/model';
 
 export default class Activity extends Model {
   @attr('string') type;
 
-  @belongsTo('annotation', {
+  @hasMany('annotation', {
     async: false,
     inverse: 'activity',
   })
-  annotation;
+  annotations;
 }
