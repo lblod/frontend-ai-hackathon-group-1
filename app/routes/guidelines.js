@@ -6,11 +6,11 @@ export default class GuidelinesRoute extends Route {
 
   async model(param) {
     // TODO use param
-    const mockUri = "https://id.erfgoed.net/aanduidingsobjecten/14969";
+    const mockUri = 'https://id.erfgoed.net/aanduidingsobjecten/14969';
 
     let annotations = await this.store.query('annotation', {
       filter: {
-        'resource': mockUri
+        resource: mockUri,
       },
     });
 
