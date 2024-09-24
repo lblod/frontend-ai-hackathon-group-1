@@ -6,17 +6,33 @@ export default class GuidelinesRoute extends Route {
 
   async model(params) {
     const { id: designationObjectId } = params;
-    console.log('id:', designationObjectId);
+
+    // DESIGNATION OBJECT DETAILS
+
+    const response = await fetch(
+      `https://inventaris.onroerenderfgoed.be/aanduidingsobjecten/${designationObjectId}`,
+      { headers: { accept: 'application/json' } },
+    );
+
+    if (!response.ok) throw new Error('Failed to fetch designation object');
+
+    const designationObject = await response.json();
+    console.log('designation object uri:', designationObject.uri);
+
+    // DESIGNATION OBJECT ANNOTATIONS
 
     // TODO use designationObjectId
     const mockUri = 'https://id.erfgoed.net/aanduidingsobjecten/14969';
 
-    let annotations = await this.store.query('annotation', {
+    const annotations = await this.store.query('annotation', {
       filter: {
         resource: mockUri,
       },
     });
 
-    return annotations;
+    return {
+      designationObject,
+      annotations,
+    };
   }
 }
