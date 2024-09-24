@@ -1,20 +1,26 @@
 <div class="welcome-container">
 
-
   <main>
     <h1>Ready to transform your home?</h1>
-    <p>Have questions about your renovation plans? We're here to help! With our service, you’ll get all the guidance you need to turn your vision into reality!</p>
-    <button {{on "click" this.openPopup}}>Get in Touch</button>
+    <p>Have questions about your renovation plans? We're here to help! With our
+      service, you’ll get all the guidance you need to turn your vision into
+      reality!</p>
+    <button type="button" {{on "click" this.openPopup}}>Get in Touch</button>
   </main>
 
-    {{#if this.isPopupOpen}}
-        <div class="modal-overlay">
-        <div class="modal">
-            <h2>Enter Your Address</h2>
-            <input type="text" placeholder="Enter your address"  value={{this.address}} />
-            <button {{on "click" this.closePopup}}>Close</button>
-            <button {{on "click" this.submitAddress}}>Submit</button>
-        </div>
-        </div>
-    {{/if}}
+  {{#if this.isPopupOpen}}
+    <div>hallo daar</div>
+    <div class="modal-overlay">
+      <div class="my-modal">
+        <h2>Enter Your Address</h2>
+        <input
+          type="text"
+          placeholder="Enter your address"
+          value={{this.address}}
+        />
+        <button type="button" {{on "click" this.closePopup}}>Close</button>
+        <button type="button" {{on "click" this.submitAddress}}>Submit</button>
+      </div>
+    </div>
+  {{/if}}
 </div>
