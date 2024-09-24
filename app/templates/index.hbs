@@ -11,14 +11,13 @@
     <div>hallo daar</div>
     <div class="modal-overlay">
       <div class="my-modal">
-        <h2>Choose location of interest</h2>
+        <h2>Choose a location of interest</h2>
         <input
           type="text"
           placeholder="Search for location"
           {{on "input" (perform this.searchTask value="target.value")}}
         />
         <button type="button" {{on "click" this.closePopup}}>Close</button>
-        <button type="button" {{on "click" this.submitAddress}}>Submit</button>
 
         <ul class="search-results">
           {{#each this.searchResults as |result|}}

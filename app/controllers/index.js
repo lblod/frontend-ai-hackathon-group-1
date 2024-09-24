@@ -23,12 +23,6 @@ export default class IndexController extends Controller {
     this.isPopupOpen = false;
   }
 
-  @action
-  submitAddress() {
-    this.closePopup();
-    this.router.transitionTo('guidelines');
-  }
-
   @restartableTask
   *searchTask(query) {
     yield timeout(300); // 300ms debounce
