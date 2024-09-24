@@ -1,5 +1,4 @@
 <div class="welcome-container">
-
   <main>
     <h1>Ready to transform your home?</h1>
     <p>Have questions about your renovation plans? We're here to help! With our
@@ -12,14 +11,24 @@
     <div>hallo daar</div>
     <div class="modal-overlay">
       <div class="my-modal">
-        <h2>Enter Your Address</h2>
+        <h2>Choose location of interest</h2>
         <input
           type="text"
-          placeholder="Enter your address"
-          value={{this.address}}
+          placeholder="Search for location"
+          {{on "input" (perform this.searchTask value="target.value")}}
         />
         <button type="button" {{on "click" this.closePopup}}>Close</button>
         <button type="button" {{on "click" this.submitAddress}}>Submit</button>
+
+        <ul class="search-results">
+          {{#each this.searchResults as |result|}}
+            <li {{on "click" (fn this.selectResult result)}}>
+              <strong>{{result.naam}}</strong>
+              -
+              {{result.locatie_samenvatting}}
+            </li>
+          {{/each}}
+        </ul>
       </div>
     </div>
   {{/if}}
