@@ -1,24 +1,29 @@
 import Controller from '@ember/controller';
-import {action} from '@ember/object';
-import {inject as service} from '@ember/service'
+import { action } from '@ember/object';
+import { inject as service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
 
 export default class IndexController extends Controller {
-    isPopupOpen = false;
-    address = '';
+  @tracked
+  isPopupOpen = false;
 
-    @service router;
+  address = '';
 
-    @action openPopup(){
-        this.set('isPopupOpen', true);
-    }
+  @service router;
 
-    @action closePopup(){
-        this.set('isPopupOpen', false);
+  @action
+  openPopup() {
+    this.isPopupOpen = true;
+  }
 
-    }
+  @action
+  closePopup() {
+    this.isPopupOpen = false;
+  }
 
-    @action submitAddress(){
-        this.closePopup();
-        this.router.transitionTo('guidelines');
-    }
+  @action
+  submitAddress() {
+    this.closePopup();
+    this.router.transitionTo('guidelines');
+  }
 }
