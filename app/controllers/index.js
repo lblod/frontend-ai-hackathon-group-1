@@ -30,7 +30,7 @@ export default class IndexController extends Controller {
     if (query) {
       try {
         const response = yield fetch(
-          `https://inventaris.onroerenderfgoed.be/erfgoedobjecten?tekst=${encodeURIComponent(query)}`,
+          `https://inventaris.onroerenderfgoed.be/aanduidingsobjecten?tekst=${encodeURIComponent(query)}&geldig=true`,
           { headers: { accept: 'application/json' } },
         );
         const results = yield response.json();
