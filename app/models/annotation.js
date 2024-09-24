@@ -12,7 +12,7 @@ export default class Annotation extends Model {
 
   @belongsTo('activity', {
     async: false,
-    inverse: 'annotation',
+    inverse: 'annotations',
   })
   activity;
 }
