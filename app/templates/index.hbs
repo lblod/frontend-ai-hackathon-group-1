@@ -19,15 +19,18 @@
         />
         <button type="button" {{on "click" this.closePopup}}>Close</button>
 
-        <ul class="search-results">
+        <div class="search-results">
           {{#each this.searchResults as |result|}}
-            <li {{on "click" (fn this.selectResult result)}}>
-              <strong>{{result.naam}}</strong>
-              -
-              {{result.locatie_samenvatting}}
-            </li>
+            <div>
+              <LinkTo @route="guidelines" @model={{result.id}}>
+                <strong>{{result.naam}}</strong>
+                -
+                {{result.locatie_samenvatting}}
+              </LinkTo>
+            </div>
           {{/each}}
-        </ul>
+        </div>
+
       </div>
     </div>
   {{/if}}

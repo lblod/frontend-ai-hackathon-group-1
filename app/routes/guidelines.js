@@ -4,7 +4,10 @@ import { inject as service } from '@ember/service';
 export default class GuidelinesRoute extends Route {
   @service store;
 
-  async model(param) {
+  async model(params) {
+    const { id } = params;
+    console.log('id:', id);
+
     // TODO use param
     const mockUri = 'https://id.erfgoed.net/aanduidingsobjecten/14969';
 
