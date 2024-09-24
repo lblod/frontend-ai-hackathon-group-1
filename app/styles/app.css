@@ -55,14 +55,14 @@
     align-items: center;
   }
   
-  .modal {
+  .my-modal {
     background-color: white;
     padding: 2rem;
     border-radius: 10px;
     text-align: center;
   }
   
-  .modal input {
+  .my-modal input {
     margin: 1rem 0;
     padding: 0.5rem;
     width: 80%;
