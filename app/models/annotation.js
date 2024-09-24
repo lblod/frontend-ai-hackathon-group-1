@@ -6,7 +6,13 @@ export default class Annotation extends Model {
 
   @belongsTo('validation', {
     async: false,
-    inverse: null,
+    inverse: 'annotation',
   })
   validation;
+
+  @belongsTo('activity', {
+    async: false,
+    inverse: 'annotation',
+  })
+  activity;
 }
