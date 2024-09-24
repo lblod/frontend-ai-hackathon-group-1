@@ -1,20 +1,9 @@
 {{page-title "Guidelines"}}
 {{outlet}}
 
-This data is coming from the triplestore:
-<ul>
-    {{#each this.model as |annotation|}}
-        <li>{{annotation.body}}</li>
-    {{/each}}
-</ul>
-
-<br>
-
-This data is stub data:
-
     <div class="guidelines-lists">
         <div class="guidelines-box">
-            <h2>Do's</h2>
+            <h2>Do's (stub data)</h2>
             <ul>
             <li>Interior Painting.</li>
             <li>Flooring Updates.</li>
@@ -25,13 +14,11 @@ This data is stub data:
         </div>
 
         <div class="guidelines-box">
-            <h2>Don'ts</h2>
+            <h2>Don'ts (from the triplestore)</h2>
             <ul>
-            <li>Changing the Building's Exterior.</li>
-            <li>Paint over historical features without permission.</li>
-            <li>Changing Rooflines.</li>
-            <li>Building Fences or Walls.</li>
-            <li>Installing Satellite Dishes.</li>
+                {{#each this.model as |annotation|}}
+                    <li>{{annotation.body}}</li>
+                {{/each}}
             </ul>
         </div>
-     </div>
+    </div>
