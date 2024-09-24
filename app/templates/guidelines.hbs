@@ -7,7 +7,7 @@
   <p><strong>Status:</strong>
     {{this.model.designationObject.status.status.naam}}
     (since
-    {{this.model.designationObject.status.datum}})</p>
+    {{date-format this.model.designationObject.status.datum "DD/MM/YYYY"}})</p>
   <p><strong>Description:</strong>
     {{this.model.designationObject.korte_beschrijving}}</p>
   <p><strong>Location:</strong>
