@@ -1,7 +1,15 @@
-{{page-title "FrontendAiHackathonGroup1"}}
+{{page-title "Frontend AI Hackathon - Group 1"}}
 
-{{outlet}}
+<AuApp>
+  <AppHeader />
 
-Welcome to our frontend !
+  <main id="main" class="au-c-main-container">
+    <div class="au-c-main-container__content au-c-main-container__content--scroll" id="content" tabindex="-1">
+      Welcome to our frontend !
 
-Group 1 here :D
+      Group 1 here :D
+
+      {{outlet}}
+    </div>
+  </main>
+</AuApp>
