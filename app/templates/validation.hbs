@@ -15,7 +15,14 @@
     <tbody>
       {{#each this.model as |validation|}}
         <tr>
-          <td>{{validation.annotation.resource}}</td>
+          <td>
+            <a
+              href="{{validation.annotation.resource}}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {{validation.annotation.resource}}
+            </a></td>
           <td>{{validation.annotation.body}}</td>
           <td>
             <button class="thumbs-up" type="button">👍</button>
