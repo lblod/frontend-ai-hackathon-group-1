@@ -1,45 +1,28 @@
-<div class="validation-container">
-  <div class="validation-box">
-    <h3>Do's</h3>
-    <ul>
-      <li>
-        <span>Example Do 1</span>
-        <button class="thumbs-up" type="button">👍</button>
-        <button class="thumbs-down" type="button">👎</button>
-      </li>
-      <li>
-        <span>Example Do 2</span>
-        <button class="thumbs-up" type="button">👍</button>
-        <button class="thumbs-down" type="button">👎</button>
-      </li>
-      <li>
-        <span>Example Do 3</span>
-        <button class="thumbs-up" type="button">👍</button>
-        <button class="thumbs-down" type="button">👎</button>
-      </li>
-    </ul>
-    <button class="add-button" type="button">Add Do</button>
-  </div>
+{{page-title "Validations"}}
 
-  <div class="validation-box">
-    <h3>Don'ts</h3>
-    <ul>
-      <li>
-        <span>Example Don't 1</span>
-        <button class="thumbs-up" type="button">👍</button>
-        <button class="thumbs-down" type="button">👎</button>
-      </li>
-      <li>
-        <span>Example Don't 2</span>
-        <button class="thumbs-up" type="button">👍</button>
-        <button class="thumbs-down" type="button">👎</button>
-      </li>
-      <li>
-        <span>Example Don't 3</span>
-        <button class="thumbs-up" type="button">👍</button>
-        <button class="thumbs-down" type="button">👎</button>
-      </li>
-    </ul>
-    <button class="add-button" type="button">Add Don't</button>
-  </div>
+<h1 class="page-title">Validate the AI output by comparing it to the source</h1>
+
+<div class="validation-container">
+
+  <table class="validation-table validation-table-bordered">
+    <thead>
+      <tr>
+        <th>Source</th>
+        <th>AI output</th>
+        <th>Feedback</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this.model as |validation|}}
+        <tr>
+          <td>{{validation.annotation.resource}}</td>
+          <td>{{validation.annotation.body}}</td>
+          <td>
+            <button class="thumbs-up" type="button">👍</button>
+            <button class="thumbs-down" type="button">👎</button></td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
 </div>
