@@ -213,6 +213,19 @@ button:hover {
   font-size: 1.5rem;
 }
 
+.active-thumb {
+  border: 2px solid #007bff; 
+  color: #007bff;
+}
+
+.thumbs-up.active-thumb {
+  border-color: green; 
+}
+
+.thumbs-down.active-thumb {
+  border-color: red;
+}
+
 .add-button {
   display: block;
   margin: 3rem auto;
