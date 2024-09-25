@@ -23,4 +23,15 @@ export default class ValidationController extends Controller {
   updateFilter(filter) {
     this.filter = filter;
   }
+  @action
+  toggleThumbsUp(validation) {
+    validation.accepted = !validation.accepted;
+    validation.denied = false; 
+  }
+
+  @action
+  toggleThumbsDown(validation) {
+    validation.denied = !validation.denied;
+    validation.accepted = false; 
+  }
 }

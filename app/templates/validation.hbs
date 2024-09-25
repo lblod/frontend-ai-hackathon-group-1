@@ -48,8 +48,14 @@
             </a></td>
           <td>{{validation.annotation.body}}</td>
           <td>
-            <button class="thumbs-up" type="button">👍</button>
-            <button class="thumbs-down" type="button">👎</button>
+            <button 
+              class="thumbs-up {{if validation.accepted 'active-thumb'}}" 
+              {{on "click" (fn this.toggleThumbsUp validation)}}
+            >👍</button>
+            <button 
+              class="thumbs-down {{if validation.denied 'active-thumb'}}" 
+              {{on "click" (fn this.toggleThumbsDown validation)}}
+            >👎</button>
           </td>
         </tr>
       {{/each}}
