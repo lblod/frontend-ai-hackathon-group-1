@@ -20,7 +20,17 @@
     <span class="ai-enhanced">AI enhanced</span> 
     <ul>
       {{#each this.model.annotations as |annotation|}}
-        <li>{{annotation.body}}</li>
+        <li>
+          {{annotation.body}}
+          <br />
+          {{#if annotation.validation.accepted}}
+            (validated by a human)
+          {{else if annotation.validation.denied}}
+            (unvalidated by a human)
+          {{else}}
+            (waiting for human validation)
+          {{/if}}
+        </li>
       {{/each}}
     </ul>
   </div>
