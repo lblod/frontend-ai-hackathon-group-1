@@ -30,7 +30,7 @@
   <table class="validation-table validation-table-bordered">
     <thead>
       <tr>
-        <th>Source</th>
+        <th>Sources</th>
         <th>AI output</th>
         <th>Feedback</th>
       </tr>
@@ -39,13 +39,20 @@
       {{#each this.filteredValidations as |validation|}}
         <tr>
           <td>
-            <a
-              href="{{validation.annotation.resource}}"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {{validation.annotation.resource}}
-            </a></td>
+            <ul>
+              {{#each validation.annotation.resource as |resource|}}
+                <li>
+                  <a
+                    href="{{resource}}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {{resource}}
+                  </a>
+                </li>
+              {{/each}}
+            </ul>
+          </td>
           <td>{{validation.annotation.body}}</td>
           <td>
             <button class="thumbs-up" type="button" {{on "click" (perform this.validateAnnotation validation)}}>👍</button>

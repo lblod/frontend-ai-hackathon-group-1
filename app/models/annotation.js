@@ -2,7 +2,7 @@ import Model, { attr, belongsTo } from '@ember-data/model';
 
 export default class Annotation extends Model {
   @attr('string') body;
-  @attr('string') resource;
+  @attr('uri-set') resource;
 
   @belongsTo('validation', {
     async: false,
