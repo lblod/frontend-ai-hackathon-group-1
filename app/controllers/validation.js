@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { task } from 'ember-concurrency';
 
 export default class ValidationController extends Controller {
   @tracked filter = 'all';
@@ -22,5 +23,36 @@ export default class ValidationController extends Controller {
   @action
   updateFilter(filter) {
     this.filter = filter;
+  }
+
+  // Known caveat: you have to refresh the frontend between two changes of thumb for the same validation to get it cleared properly
+  @task
+  *validateAnnotation(validation) {
+    const clearedValidation = this.clearValidationState(validation);
+    clearedValidation.accepted = new Date();
+
+    yield clearedValidation.save();
+    console.log("Approved");
+  }
+
+  // Known caveat: you have to refresh the frontend between two changes of thumb for the same validation to get it cleared properly
+  @task
+  *denyAnnotation(validation) {
+    const clearedValidation = this.clearValidationState(validation);
+    clearedValidation.denied = new Date();
+
+    yield clearedValidation.save();
+    console.log("Denied");
+  }
+
+  clearValidationState(validation) {
+    if (validation.accepted) {
+      validation.accepted = undefined;
+    }
+    if (validation.denied) {
+      validation.denied = undefined;
+    }
+
+    return validation;
   }
 }
