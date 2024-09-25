@@ -21,6 +21,7 @@ export default class GuidelinesRoute extends Route {
     // DESIGNATION OBJECT ANNOTATIONS
 
     const annotations = await this.store.query('annotation', {
+      include: 'validation',
       filter: {
         resource: designationObject.uri,
       },

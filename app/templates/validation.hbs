@@ -1,45 +1,66 @@
+{{page-title "Validations"}}
+
+<h1 class="page-title">Validate the AI output by comparing it to the source</h1>
+
 <div class="validation-container">
-  <div class="validation-box">
-    <h3>Do's</h3>
-    <ul>
-      <li>
-        <span>Example Do 1</span>
-        <button class="thumbs-up" type="button">👍</button>
-        <button class="thumbs-down" type="button">👎</button>
-      </li>
-      <li>
-        <span>Example Do 2</span>
-        <button class="thumbs-up" type="button">👍</button>
-        <button class="thumbs-down" type="button">👎</button>
-      </li>
-      <li>
-        <span>Example Do 3</span>
-        <button class="thumbs-up" type="button">👍</button>
-        <button class="thumbs-down" type="button">👎</button>
-      </li>
-    </ul>
-    <button class="add-button" type="button">Add Do</button>
+
+  <div class="filter-buttons">
+    <button
+      type="button"
+      {{on "click" (fn this.updateFilter "all")}}
+      class="{{if (eq this.filter 'all') 'active' ''}}"
+    >All</button>
+    <button
+      type="button"
+      {{on "click" (fn this.updateFilter "open")}}
+      class="{{if (eq this.filter 'open') 'active' ''}}"
+    >Open</button>
+    <button
+      type="button"
+      {{on "click" (fn this.updateFilter "accepted")}}
+      class="{{if (eq this.filter 'accepted') 'active' ''}}"
+    >Accepted</button>
+    <button
+      type="button"
+      {{on "click" (fn this.updateFilter "denied")}}
+      class="{{if (eq this.filter 'denied') 'active' ''}}"
+    >Denied</button>
   </div>
 
-  <div class="validation-box">
-    <h3>Don'ts</h3>
-    <ul>
-      <li>
-        <span>Example Don't 1</span>
-        <button class="thumbs-up" type="button">👍</button>
-        <button class="thumbs-down" type="button">👎</button>
-      </li>
-      <li>
-        <span>Example Don't 2</span>
-        <button class="thumbs-up" type="button">👍</button>
-        <button class="thumbs-down" type="button">👎</button>
-      </li>
-      <li>
-        <span>Example Don't 3</span>
-        <button class="thumbs-up" type="button">👍</button>
-        <button class="thumbs-down" type="button">👎</button>
-      </li>
-    </ul>
-    <button class="add-button" type="button">Add Don't</button>
-  </div>
+  <table class="validation-table validation-table-bordered">
+    <thead>
+      <tr>
+        <th>Sources</th>
+        <th>AI output</th>
+        <th>Feedback</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this.filteredValidations as |validation|}}
+        <tr>
+          <td>
+            <ul>
+              {{#each validation.annotation.resource as |resource|}}
+                <li>
+                  <a
+                    href="{{resource}}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {{resource}}
+                  </a>
+                </li>
+              {{/each}}
+            </ul>
+          </td>
+          <td>{{validation.annotation.body}}</td>
+          <td>
+            <button class="thumbs-up" type="button" {{on "click" (perform this.validateAnnotation validation)}}>👍</button>
+            <button class="thumbs-down" type="button" {{on "click" (perform this.denyAnnotation validation)}}>👎</button>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
 </div>
