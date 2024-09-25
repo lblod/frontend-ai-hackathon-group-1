@@ -4,6 +4,29 @@
 
 <div class="validation-container">
 
+  <div class="filter-buttons">
+    <button
+      type="button"
+      {{on "click" (fn this.updateFilter "all")}}
+      class="{{if (eq this.filter 'all') 'active' ''}}"
+    >All</button>
+    <button
+      type="button"
+      {{on "click" (fn this.updateFilter "open")}}
+      class="{{if (eq this.filter 'open') 'active' ''}}"
+    >Open</button>
+    <button
+      type="button"
+      {{on "click" (fn this.updateFilter "accepted")}}
+      class="{{if (eq this.filter 'accepted') 'active' ''}}"
+    >Accepted</button>
+    <button
+      type="button"
+      {{on "click" (fn this.updateFilter "denied")}}
+      class="{{if (eq this.filter 'denied') 'active' ''}}"
+    >Denied</button>
+  </div>
+
   <table class="validation-table validation-table-bordered">
     <thead>
       <tr>
@@ -13,7 +36,7 @@
       </tr>
     </thead>
     <tbody>
-      {{#each this.model as |validation|}}
+      {{#each this.filteredValidations as |validation|}}
         <tr>
           <td>
             <a
