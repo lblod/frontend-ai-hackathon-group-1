@@ -9,4 +9,5 @@ export default class Router extends EmberRouter {
 Router.map(function () {
   this.route('guidelines', { path: '/guidelines/:id' });
   this.route('validation');
+  this.route('chat');
 });
