@@ -57,11 +57,11 @@
           <td>
             <button 
               class="thumbs-up {{if validation.accepted 'active-thumb'}}" 
-              {{on "click" (fn this.toggleThumbsUp validation)}}
+              {{on "click" (perform this.validateAnnotation validation)}}
             >👍</button>
             <button 
               class="thumbs-down {{if validation.denied 'active-thumb'}}" 
-              {{on "click" (fn this.toggleThumbsDown validation)}}
+              {{on "click" (perform this.denyAnnotation validation)}}
             >👎</button>
           </td>
         </tr>
