@@ -138,11 +138,30 @@ button:hover {
   margin: 0.5rem 0;
 }
 
-.validation-container {
-  display: flex;
-  justify-content: space-around;
+.page-title {
+  margin-top: 3.5rem;
   padding: 2rem;
-  margin-top: 6rem;
+}
+
+.validation-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.validation-table th,
+.validation-table td {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.validation-table th {
+  background-color: #f2f2f2;
+}
+
+.validation-container {
+  padding: 2rem;
+  margin-top: 2rem;
 }
 
 .validation-box {
@@ -196,5 +215,27 @@ button:hover {
 }
 
 .add-button:hover {
+  background-color: #0056b3;
+}
+
+.filter-buttons {
+  margin-bottom: 1rem;
+}
+
+.filter-buttons button {
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.filter-buttons button.active {
+  background-color: #0056b3;
+}
+
+.filter-buttons button:hover {
   background-color: #0056b3;
 }
